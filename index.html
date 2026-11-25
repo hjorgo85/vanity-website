@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="sq">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vanity — Hair · Beauty · Academy | Durrës</title>
+<meta name="description" content="Vanity Durrës: hair atelier, Hair Spa, maderoterapi dhe masazhe, Vanity Academy dhe distribucioni zyrtar i Martom Deluxe në Shqipëri.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#101010; --black-2:#181716; --gold:#C5A46D; --gold-soft:#d9c294;
+    --ivory:#F5F1E8; --bordo:#581D30; --white:#FFFFFF; --muted:#a7a197;
+    --serif:"Bodoni Moda", Georgia, serif; --sans:"Montserrat", system-ui, sans-serif;
+    --wrap:1200px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--black);color:var(--ivory);font-family:var(--sans);font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+  .eyebrow{font-size:.72rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold)}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.15}
+  h2{font-size:clamp(2rem,4.5vw,3.2rem);margin:.4em 0 .5em}
+  h3{font-size:1.5rem}
+  .rule{width:60px;height:1px;background:var(--gold);margin:22px 0}
+  .center{text-align:center}.center .rule{margin:22px auto}
+  .btn{display:inline-block;padding:15px 34px;border:1px solid var(--gold);color:var(--gold);font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;transition:.3s;background:transparent;cursor:pointer;font-family:var(--sans)}
+  .btn:hover,.btn.solid{background:var(--gold);color:var(--black)}
+  .btn.solid:hover{background:var(--gold-soft)}
+  section{padding:110px 0}
+
+  /* image slots: show the photo if it exists, otherwise a dark-gold gradient */
+  .ph{background-color:var(--black-2);background-size:cover;background-position:center;position:relative}
+  .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,16,16,.15),rgba(16,16,16,.75))}
+
+  /* header */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s}
+  header.scrolled{background:rgba(16,16,16,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(197,164,109,.2)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:84px}
+  .logo{font-family:var(--serif);font-size:1.6rem;letter-spacing:.45em;color:var(--white)}
+  .logo small{display:block;font-family:var(--sans);font-size:.55rem;letter-spacing:.4em;color:var(--gold);margin-top:-4px}
+  .links{display:flex;gap:34px;align-items:center}
+  .links a{font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;transition:.2s}
+  .links a:hover{color:var(--gold)}
+  .links .btn{padding:11px 22px}
+  .burger{display:none;background:none;border:0;color:var(--ivory);font-size:1.6rem;cursor:pointer}
+
+  /* hero */
+  .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 0 80px;
+    background-image:url(images/hero.jpg),radial-gradient(ellipse at 50% 30%,#2a2219 0%,#101010 65%)}
+  .hero::after{background:linear-gradient(180deg,rgba(16,16,16,.55),rgba(16,16,16,.85))}
+  .hero .inner{position:relative;z-index:2;max-width:820px;padding:0 24px}
+  .hero h1{font-size:clamp(2.6rem,7vw,5.4rem);margin:24px 0}
+  .hero h1 em{color:var(--gold)}
+  .hero p{color:#d8d2c6;font-size:1.05rem;margin-bottom:40px}
+  .hero .actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+  /* worlds */
+  .worlds{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--black)}
+  .world{min-height:460px;display:flex;align-items:flex-end;padding:34px;overflow:hidden}
+  .world .txt{position:relative;z-index:2;transition:.4s}
+  .world .num{font-family:var(--serif);color:var(--gold);font-size:.95rem}
+  .world h3{margin:6px 0 8px;letter-spacing:.06em}
+  .world p{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:#cfc8bb}
+  .world:hover .txt{transform:translateY(-8px)}
+  .w1{background-image:url(images/hair.jpg),linear-gradient(160deg,#3a2c1c,#101010)}
+  .w2{background-image:url(images/spa.jpg),linear-gradient(160deg,#2b2420,#101010)}
+  .w3{background-image:url(images/academy.jpg),linear-gradient(160deg,#3b1825,#101010)}
+  .w4{background-image:url(images/martom.jpg),linear-gradient(160deg,#4a3b22,#101010)}
+
+  /* philosophy */
+  .philo{background:var(--ivory);color:var(--black)}
+  .philo h2{color:var(--black)}
+  .philo .lead{max-width:720px;margin:0 auto;color:#4a453e;font-size:1.05rem}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:60px}
+  .stat b{display:block;font-family:var(--serif);font-size:3rem;font-weight:400;color:var(--bordo)}
+  .stat span{font-size:.72rem;letter-spacing:.25em;text-transform:uppercase}
+
+  /* split sections */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+  .split.rev .media{order:2}
+  .media{min-height:560px}
+  .m-hair{background-image:url(images/hair.jpg),linear-gradient(160deg,#3a2c1c,#151311)}
+  .m-spa{background-image:url(images/spa.jpg),linear-gradient(160deg,#2b2420,#151311)}
+  .list{list-style:none;margin:30px 0 36px}
+  .list li{display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid rgba(197,164,109,.2)}
+  .list li span:last-child{color:var(--gold);font-size:.8rem;letter-spacing:.12em;white-space:nowrap}
+  .muted{color:var(--muted)}
+
+  /* hair spa band */
+  .band{background:var(--bordo);text-align:center}
+  .band p{max-width:640px;margin:0 auto 36px;color:#ecdfe2}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:50px 0}
+  .steps div{border-top:1px solid var(--gold);padding-top:18px;text-align:left}
+  .steps b{font-family:var(--serif);color:var(--gold);font-weight:400;font-size:1.3rem}
+
+  /* academy */
+  .courses{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+  .course{border:1px solid rgba(197,164,109,.3);padding:40px 32px;transition:.3s;display:flex;flex-direction:column}
+  .course:hover{border-color:var(--gold);transform:translateY(-4px)}
+  .course .lvl{font-size:.68rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
+  .course h3{margin:12px 0}
+  .course p{color:var(--muted);font-size:.92rem;flex:1}
+  .course a{margin-top:26px;font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold)}
+
+  /* martom */
+  .martom{background:var(--ivory);color:var(--black)}
+  .martom h2,.martom h3{color:var(--black)}
+  .martom .muted{color:#5e584f}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:50px}
+  .card{background:var(--white);padding:46px 40px;border-top:3px solid var(--gold)}
+  .card.dark{background:var(--black);color:var(--ivory);border-top-color:var(--bordo)}
+  .card.dark h3{color:var(--ivory)}
+  .card p{margin:14px 0 28px}
+
+  /* gallery */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:50px}
+  .gallery .ph{aspect-ratio:3/4;background-image:linear-gradient(160deg,#2a231b,#141210)}
+  .gallery .ph span{position:absolute;bottom:16px;left:16px;z-index:2;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+
+  /* booking */
+  .book{background:var(--black-2)}
+  form{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px}
+  form .full{grid-column:1/-1}
+  label{display:block;font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+  input,select,textarea{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(197,164,109,.4);color:var(--ivory);padding:10px 2px;font:inherit;font-size:.95rem;outline:none}
+  input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+  select option{background:var(--black)}
+  .contact p{margin:6px 0}
+
+  footer{border-top:1px solid rgba(197,164,109,.2);padding:60px 0 40px;text-align:center}
+  footer .logo{display:inline-block}
+  footer p{font-size:.75rem;letter-spacing:.2em;color:var(--muted);margin-top:22px}
+  .wa{position:fixed;right:22px;bottom:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+
+  /* responsive */
+  @media (max-width:980px){
+    .worlds{grid-template-columns:1fr 1fr}
+    .split{grid-template-columns:1fr;gap:40px}.split.rev .media{order:0}
+    .media{min-height:380px}
+    .courses{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .gallery{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:760px){
+    section{padding:80px 0}
+    .wrap{padding:0 16px}
+    .burger{display:block}
+    .links{position:fixed;inset:84px 0 auto 0;flex-direction:column;gap:22px;padding:30px 16px 40px;background:rgba(16,16,16,.98);transform:translateY(-130%);transition:.35s;border-bottom:1px solid rgba(197,164,109,.25)}
+    .links.open{transform:none}
+    header{background:rgba(16,16,16,.94)}
+    .worlds{grid-template-columns:1fr}.world{min-height:320px}
+    .stats,.two,form{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
+    .logo{font-size:1.3rem}
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#" class="logo">VANITY<small>HAIR · BEAUTY · ACADEMY</small></a>
+    <button class="burger" aria-label="Menu" onclick="document.querySelector('.links').classList.toggle('open')">☰</button>
+    <nav class="links" onclick="if(event.target.tagName==='A')this.classList.remove('open')">
+      <a href="#hair">Hair</a>
+      <a href="#spa">Spa</a>
+      <a href="#academy">Academy</a>
+      <a href="#martom">Martom</a>
+      <a href="#book" class="btn">Rezervo</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero ph">
+  <div class="inner">
+    <div class="eyebrow">The Art of Beauty — Durrës</div>
+    <h1>Beauty is an art.<br><em>Vanity</em> is the experience.</h1>
+    <p>Hair artistry. Body rituals. Professional education.</p>
+    <div class="actions">
+      <a href="#book" class="btn solid">Book your experience</a>
+      <a href="#worlds" class="btn">Discover our world</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOUR WORLDS -->
+<div class="worlds" id="worlds">
+  <a href="#hair" class="world ph w1"><div class="txt"><div class="num">01</div><h3>Hair Atelier</h3><p>Cut · Color · Extensions · Hair Spa</p></div></a>
+  <a href="#spa" class="world ph w2"><div class="txt"><div class="num">02</div><h3>Body &amp; Spa</h3><p>Massage · Maderotherapy · Rituals</p></div></a>
+  <a href="#academy" class="world ph w3"><div class="txt"><div class="num">03</div><h3>Academy</h3><p>Learn · Create · Become</p></div></a>
+  <a href="#martom" class="world ph w4"><div class="txt"><div class="num">04</div><h3>Martom Deluxe</h3><p>Professional Italian Haircare</p></div></a>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="philo center">
+  <div class="wrap">
+    <div class="eyebrow">Our Philosophy</div>
+    <h2>More than a salon.</h2>
+    <div class="rule"></div>
+    <p class="lead">Një destinacion për bukurinë, kreativitetin dhe ekselencën. Prej mbi 14 vitesh, Vanity sjell në Durrës standardin e salloneve të mëdha italiane — nga prerja e parë deri te trajtimet rigjeneruese të flokëve dhe trupit.</p>
+    <div class="stats">
+      <div class="stat"><b>14+</b><span>Vite përvojë</span></div>
+      <div class="stat"><b>4</b><span>Botë bukurie</span></div>
+      <div class="stat"><b>IT</b><span>Produkte Martom Deluxe</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- HAIR ATELIER -->
+<section id="hair">
+  <div class="wrap split">
+    <div class="media ph m-hair"></div>
+    <div>
+      <div class="eyebrow">01 — Vanity Hair Atelier</div>
+      <h2>Flokë të krijuar si vepër arti</h2>
+      <p class="muted">Çdo shërbim fillon me një konsultim personal dhe realizohet vetëm me produkte profesionale Martom Deluxe.</p>
+      <ul class="list">
+        <li><span>Prerje &amp; Stilim</span><span>Rezervo</span></li>
+        <li><span>Kolorim &amp; Balayage</span><span>Rezervo</span></li>
+        <li><span>Extension flokësh</span><span>Konsultim</span></li>
+        <li><span>Trajtime rigjeneruese</span><span>Rezervo</span></li>
+        <li><span>Hair Spa Ritual</span><span>Rezervo</span></li>
+      </ul>
+      <a href="#book" class="btn">Zgjidh stilistin tënd</a>
+    </div>
+  </div>
+</section>
+
+<!-- HAIR SPA BAND -->
+<section class="band">
+  <div class="wrap">
+    <div class="eyebrow">Signature Experience</div>
+    <h2>Vanity Hair Spa</h2>
+    <p>Një ritual i plotë për flokët dhe lëkurën e kokës — diagnostikim, pastrim i thellë, masazh relaksues dhe trajtim intensiv me Martom Deluxe.</p>
+    <div class="steps">
+      <div><b>I.</b><p>Diagnostikim i lëkurës së kokës</p></div>
+      <div><b>II.</b><p>Pastrim &amp; peeling i butë</p></div>
+      <div><b>III.</b><p>Masazh relaksues i kokës</p></div>
+      <div><b>IV.</b><p>Maskë &amp; finishim luksoz</p></div>
+    </div>
+    <a href="#book" class="btn solid">Rezervo ritualin</a>
+  </div>
+</section>
+
+<!-- BODY & SPA -->
+<section id="spa">
+  <div class="wrap split rev">
+    <div class="media ph m-spa"></div>
+    <div>
+      <div class="eyebrow">02 — Vanity Body &amp; Wellness</div>
+      <h2>Rituale për trupin</h2>
+      <p class="muted">Teknika natyrale me dru, duar profesionale dhe një ambient i qetë — për formë, energji dhe relaks.</p>
+      <ul class="list">
+        <li><span>Maderoterapi (masazh me dru)</span><span>Paketa</span></li>
+        <li><span>Masazh relaksues</span><span>Rezervo</span></li>
+        <li><span>Masazh modelues</span><span>Paketa</span></li>
+        <li><span>Trajtime trupore</span><span>Rezervo</span></li>
+      </ul>
+      <a href="#book" class="btn">Bli një paketë seancash</a>
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMY -->
+<section id="academy" style="background:var(--black-2)">
+  <div class="wrap center">
+    <div class="eyebrow">03 — Vanity Academy</div>
+    <h2>Learn. Create. Become.</h2>
+    <div class="rule"></div>
+    <p class="muted" style="max-width:640px;margin:0 auto">Akademi profesionale për parukeri dhe estetikë, me praktikë reale në sallon dhe certifikatë në përfundim.</p>
+    <div class="courses" style="text-align:left">
+      <div class="course"><div class="lvl">Niveli I</div><h3>Fillestar</h3><p>Bazat e prerjes, larjes, fenit dhe kolorimit. Për ata që nisin karrierën në parukeri.</p><a href="#book">Apliko →</a></div>
+      <div class="course"><div class="lvl">Niveli II</div><h3>I avancuar</h3><p>Balayage, teknika moderne kolorimi, extension dhe Hair Spa me produkte Martom.</p><a href="#book">Apliko →</a></div>
+      <div class="course"><div class="lvl">Masterclass</div><h3>Me profesionistë</h3><p>Seminare intensive me stilistë të ftuar dhe trendet e fundit italiane.</p><a href="#book">Shiko kalendarin →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARTOM -->
+<section id="martom" class="martom">
+  <div class="wrap center">
+    <div class="eyebrow">04 — Martom Deluxe Albania</div>
+    <h2>Professional Italian Haircare</h2>
+    <div class="rule"></div>
+    <p class="muted" style="max-width:640px;margin:0 auto">Vanity është distributori i Martom Deluxe në Shqipëri — produkte profesionale italiane për sallone dhe për kujdesin në shtëpi.</p>
+    <div class="two" style="text-align:left">
+      <div class="card"><div class="eyebrow">Për klientët</div><h3>Dyqani online</h3><p class="muted">Produktet që përdorim në sallon, tani edhe për rutinën tënde në shtëpi.</p><a href="#book" class="btn">Shiko katalogun</a></div>
+      <div class="card dark"><div class="eyebrow">Për sallonet · B2B</div><h3>Bëhu partner</h3><p class="muted">Çmime me shumicë, trajnime për produktet dhe mbështetje e dedikuar për sallonin tuaj.</p><a href="#book" class="btn">Regjistro sallonin</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section>
+  <div class="wrap center">
+    <div class="eyebrow">Before &amp; After</div>
+    <h2>Puna jonë</h2>
+    <div class="gallery">
+      <div class="ph"><span>Balayage</span></div>
+      <div class="ph"><span>Extension</span></div>
+      <div class="ph"><span>Hair Spa</span></div>
+      <div class="ph"><span>Styling</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="book" class="book">
+  <div class="wrap split">
+    <div class="contact">
+      <div class="eyebrow">Rezervo</div>
+      <h2>Book your experience</h2>
+      <p class="muted">Plotëso formularin dhe mesazhi do të hapet direkt në WhatsApp. Do të të konfirmojmë orarin sa më shpejt.</p>
+      <div class="rule"></div>
+      <p>Durrës, Shqipëri</p>
+      <p class="muted">E Hënë – E Shtunë · 09:00 – 20:00</p>
+    </div>
+    <form onsubmit="return sendWA(event)">
+      <div><label for="n">Emri</label><input id="n" required></div>
+      <div><label for="p">Telefoni</label><input id="p" type="tel" required></div>
+      <div class="full"><label for="s">Shërbimi</label>
+        <select id="s">
+          <option>Prerje &amp; Stilim</option><option>Kolorim &amp; Balayage</option><option>Extension flokësh</option>
+          <option>Hair Spa Ritual</option><option>Maderoterapi</option><option>Masazh</option>
+          <option>Vanity Academy — aplikim</option><option>Martom Deluxe — B2B / produkte</option>
+        </select></div>
+      <div><label for="d">Data</label><input id="d" type="date"></div>
+      <div><label for="t">Ora</label><input id="t" type="time"></div>
+      <div class="full"><label for="m">Shënime</label><textarea id="m" rows="3"></textarea></div>
+      <div class="full"><button class="btn solid" type="submit">Dërgo në WhatsApp</button></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <a href="#" class="logo">VANITY<small>DURRËS · ALBANIA</small></a>
+  <p>© <span id="y"></span> Vanity Hair · Beauty · Academy — Martom Deluxe Albania</p>
+</footer>
+
+<!-- TODO: replace 355000000000 with the salon's WhatsApp number (country code, no + or spaces) -->
+<a class="wa" href="https://wa.me/355000000000" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3z"/></svg>
+</a>
+
+<script>
+  const WA_NUMBER = "355000000000"; // TODO: salon WhatsApp number
+  document.getElementById('y').textContent = new Date().getFullYear();
+  const hdr = document.querySelector('header');
+  addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 40));
+  function sendWA(e){
+    e.preventDefault();
+    const v = id => document.getElementById(id).value;
+    const msg = `Përshëndetje Vanity! Dua të rezervoj:\n• Shërbimi: ${v('s')}\n• Data: ${v('d')||'-'}  Ora: ${v('t')||'-'}\n• Emri: ${v('n')}\n• Tel: ${v('p')}\n${v('m')?'• Shënime: '+v('m'):''}`;
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    return false;
+  }
+</script>
+</body>
+</html>
